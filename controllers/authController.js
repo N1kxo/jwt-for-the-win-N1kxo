@@ -7,7 +7,7 @@ exports.login = (req, res) => {
     // Verificación de credenciales (aquí deberías implementar tu lógica real)
     if (email === 'admin@admin.com' && password === 'admin') {
         // Generar un token JWT
-        const token = jwt.sign({ email }, 'jwt_secret_key', { expiresIn: '1h' }); // Aquí deberías cambiar 'jwt_secret_key' por tu propia clave secreta
+        const token = jwt.sign({ email }, my_secret_key, { expiresIn: '1h' }); // Aquí deberías cambiar 'jwt_secret_key' por tu propia clave secreta
 
         // Configurar la cookie de sesión con el token JWT
         res.cookie('session', token, { httpOnly: true, maxAge: 3600000 }); // La cookie expira en 1 hora (3600000 ms)
